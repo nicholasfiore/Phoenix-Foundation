@@ -1,0 +1,186 @@
+body {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+nav {
+  background-color: #be2b28;
+  color: #ebebeb;
+  height: 15%;
+  margin-top: 1%;
+  display: flex;
+  align-items: center;
+}
+nav a, nav a:visited {
+  color: #ebebeb;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #4e91ab;
+}
+
+#company-name {
+  width: 40%;
+}
+#company-name h1 {
+  text-align: left;
+  padding-left: 7.5%;
+  font-size: 2.5em;
+}
+
+#links {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: #be2b28;
+  height: 10%;
+  margin-top: 1.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+footer h3 {
+  font-size: 1.5rem;
+  color: #ebebeb;
+  text-align: center;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+#landing-main-bg {
+  background-image: url("/res/landing-img.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: 1.5%;
+  display: flex;
+}
+
+#landing-main {
+  background-color: rgba(10, 23, 29, 0.6);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#landing-main h2 {
+  font-size: 4rem;
+  color: #ebebeb;
+  text-align: center;
+  line-height: 5rem;
+}
+
+#landing-second-bg {
+  margin-top: 1.5%;
+  background-image: url("/res/world.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+}
+
+#landing-second {
+  background-color: rgba(10, 23, 29, 0.6);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#landing-second-top h3, #landing-second-top h4 {
+  color: #ebebeb;
+  text-align: center;
+  line-height: 3.25rem;
+}
+#landing-second-top h3 {
+  font-size: 2.5rem;
+}
+#landing-second-top h4 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#landing-low-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-bottom: 1.5%;
+}
+#landing-low-links a, #landing-low-links a:visited {
+  font-size: 1.75rem;
+  color: #ebebeb;
+}
+#landing-low-links a:hover {
+  color: #be2b28;
+}
+
+#landing-reviews-bg {
+  background-image: url("/res/red-waves.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: 1.5%;
+  display: flex;
+}
+
+#landing-reviews {
+  background-color: rgba(10, 23, 29, 0.6);
+  width: 100%;
+  padding-bottom: 1.5%;
+}
+#landing-reviews h2 {
+  color: #ebebeb;
+  font-size: 2.25rem;
+  text-align: center;
+}
+
+#review-area {
+  color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+}
+
+.review-arrow {
+  width: 10%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.review-arrow:hover {
+  cursor: pointer;
+  color: #4e91ab;
+}
+
+#review {
+  width: 80%;
+  background-color: rgba(190, 43, 40, 0.6);
+  font-size: 1rem;
+}
+#review h4, #review p {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+#review h4 {
+  text-align: left;
+}
+#review p {
+  text-align: right;
+}
+
+#ask-for-feedback {
+  color: #ebebeb;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+#ask-for-feedback a, #ask-for-feedback a:visited {
+  color: #4e91ab;
+}
+#ask-for-feedback a:hover {
+  color: #be2b28;
+}
+
+/*# sourceMappingURL=index.css.map */

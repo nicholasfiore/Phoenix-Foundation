@@ -1,0 +1,153 @@
+@import './global.scss';
+
+#landing-main-bg {
+    background-image: url('/res/landing-img.jpg');
+    background-position: center;
+    background-size: cover;
+
+    margin-top: 1.5%;
+    display: flex;
+}
+
+#landing-main {
+    background-color: rgba($black, 0.6);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    h2 {
+        font-size: 4.0rem;
+        color: $white;
+        text-align: center;
+        line-height: 5rem;
+    }
+}
+
+#landing-second-bg {
+    margin-top: 1.5%;
+    background-image: url('/res/world.jpg');
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+}
+
+#landing-second {
+    background-color: rgba($black, 0.6);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#landing-second-top {
+    h3, h4{
+        color: $white;
+        text-align: center;
+        line-height: 3.25rem;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+    }
+
+    h4 {
+        font-size: 2.0rem;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+#landing-low-links {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-left: 25%;
+    margin-right: 25%;
+
+    padding-bottom: 1.5%;
+
+    a, a:visited {
+        font-size: 1.75rem;
+        color: $white;
+    }
+
+    a:hover {
+        color: $red;
+    }
+}
+
+#landing-reviews-bg {
+    background-image: url('/res/red-waves.jpg');
+    background-position: center;
+    background-size: cover;
+
+    margin-top: 1.5%;
+
+    display: flex;
+}
+
+#landing-reviews {
+    background-color: rgba($black, 0.6);
+    width: 100%;
+    padding-bottom: 1.5%;
+
+    h2 {
+        color: $white;
+        font-size: 2.25rem;
+        text-align: center;
+    }
+}
+
+#review-area {
+    color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+
+    display: flex;
+}
+
+.review-arrow {
+    width: 10%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.review-arrow:hover {
+    cursor: pointer;
+    color: $blue;
+}
+
+#review {
+    width: 80%;
+    background-color: rgba($red, 0.6);
+    
+    font-size: 1rem;
+
+    h4, p {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    h4 {
+        text-align: left;
+    }
+
+    p {
+        text-align: right;
+    }
+}
+
+#ask-for-feedback {
+    color: $white;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    a, a:visited {
+        color: $blue;
+    }
+
+    a:hover {
+        color: $red;
+    }
+}
