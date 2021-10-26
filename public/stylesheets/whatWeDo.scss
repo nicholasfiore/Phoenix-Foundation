@@ -1,0 +1,63 @@
+@import './global.scss';
+
+#page-title {
+    color: $white;
+    text-align: center;
+    font-size: 3.0rem;
+    margin-top: 0;
+    padding-top: 1.5%;
+}
+
+#projects-area {
+    background-color: rgba($black, 0.6);
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5%;
+}
+
+#projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 1.5%;
+}
+
+.project {
+    width: 45%;
+    border: 3px solid $red;
+    background-color: $white;
+
+    display: inline-block;
+
+    color: $black;
+
+    h2 {
+        text-align: center;
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 3.5%;
+        line-height: 0.5rem;
+    }
+
+    p {
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: justify;
+    }
+
+    img {
+        width: 75%;
+        height: 15rem;
+        object-fit: cover;
+        object-position: center;
+
+        margin-left: 12.5%;
+    }
+}
