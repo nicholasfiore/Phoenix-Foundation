@@ -1,0 +1,67 @@
+$red: rgb(190, 43, 40);
+$black: rgb(10, 23, 29);
+$blue: rgb(78, 145, 171);
+$navy: rgb(20, 51, 68);
+$white: rgb(235, 235, 235);
+
+body {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+nav {
+    background-color: $red;
+    color: $white;
+    
+    height: 15%;
+    margin-top: 1%;
+
+    display: flex;
+    align-items: center;
+
+    a, a:visited{
+        color: $white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $blue;
+    }
+}
+
+#company-name {
+    width: 40%;
+    
+    h1 {
+        text-align: left;
+        padding-left: 7.5%;
+        font-size: 2.5em;
+    }
+}
+
+#links {
+    width: 60%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+footer {
+    background-color: $red;
+    height: 10%;
+    margin-top: 1.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    h3 {
+        font-size: 1.5rem;
+        color: $white;
+        text-align: center;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+    }
+}
