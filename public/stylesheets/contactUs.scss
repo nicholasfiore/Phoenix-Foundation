@@ -1,0 +1,126 @@
+@import './global.scss';
+
+#form-bg {
+    background-image: url('/res/red-bubbles.jpg');
+    background-size: cover;
+
+    min-height: 500px;
+    margin-top: 1.5%;
+
+    display: flex;
+}
+
+#form-area {
+    background-color: rgba($black, 0.6);
+    width: 100%;
+    display: flex;
+}
+
+#contact-form-area, #review-form-area{
+    width: 50%;
+}
+
+.title-text {
+    color: $white;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-size: 3rem;
+    margin-bottom: 0;
+    padding-bottom: 0.25rem;
+}
+
+#review-description {
+    color: $white;
+    margin-left: 5%;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 1.25rem;
+}
+
+#contact-form, #review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    display: inline-block;
+    margin-bottom: 3%;
+
+    label {
+        color: $white;
+        font-size: 2rem;
+        margin-left: 5%;
+    }
+
+    input {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        border-bottom: 1.5px solid $red;
+        color: $white;
+        font-size: 1.25rem;
+        margin-left: 3%;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    select {
+        font-size: 1rem;
+        font-family: Helvetica, Arial, sans-serif;
+        margin-left: 3%;
+        background-color: rgba(0, 0, 0, 0);
+        color: $white;
+        outline: none;
+    }
+
+    textarea {
+        width: 40%;
+        margin-top: 0.75%;
+        margin-left: 5%;
+        font-size: 1.25rem;
+        background-color: rgba(0, 0, 0, 0);
+        color: $white;
+        border: 1.5px solid $red;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    input[type="submit"] {
+        width: 20%;
+        margin-left: 5%;
+        font-size: 2rem;
+        border: 3px solid $red;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        border-color: $blue;
+    }
+
+    input[type="submit"]:active {
+        border-color: $black;
+    }
+}
+
+.comments-area, .review-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.thank-you {
+    background-color: $blue;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1.25rem;
+    color: $black;
+
+    p {
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+}

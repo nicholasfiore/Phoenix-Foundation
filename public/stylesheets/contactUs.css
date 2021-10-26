@@ -1,0 +1,168 @@
+body {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+nav {
+  background-color: #be2b28;
+  color: #ebebeb;
+  height: 15%;
+  margin-top: 1%;
+  display: flex;
+  align-items: center;
+}
+nav a, nav a:visited {
+  color: #ebebeb;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #4e91ab;
+}
+
+#company-name {
+  width: 40%;
+}
+#company-name h1 {
+  text-align: left;
+  padding-left: 7.5%;
+  font-size: 2.5em;
+}
+
+#links {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: #be2b28;
+  height: 10%;
+  margin-top: 1.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+footer h3 {
+  font-size: 1.5rem;
+  color: #ebebeb;
+  text-align: center;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+#form-bg {
+  background-image: url("/res/red-bubbles.jpg");
+  background-size: cover;
+  min-height: 500px;
+  margin-top: 1.5%;
+  display: flex;
+}
+
+#form-area {
+  background-color: rgba(10, 23, 29, 0.6);
+  width: 100%;
+  display: flex;
+}
+
+#contact-form-area, #review-form-area {
+  width: 50%;
+}
+
+.title-text {
+  color: #ebebeb;
+  margin-left: 5%;
+  margin-top: 3%;
+  font-size: 3rem;
+  margin-bottom: 0;
+  padding-bottom: 0.25rem;
+}
+
+#review-description {
+  color: #ebebeb;
+  margin-left: 5%;
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 1.25rem;
+}
+
+#contact-form, #review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  display: inline-block;
+  margin-bottom: 3%;
+}
+.form-field label {
+  color: #ebebeb;
+  font-size: 2rem;
+  margin-left: 5%;
+}
+.form-field input {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 1.5px solid #be2b28;
+  color: #ebebeb;
+  font-size: 1.25rem;
+  margin-left: 3%;
+}
+.form-field input:focus {
+  outline: none;
+}
+.form-field select {
+  font-size: 1rem;
+  font-family: Helvetica, Arial, sans-serif;
+  margin-left: 3%;
+  background-color: rgba(0, 0, 0, 0);
+  color: #ebebeb;
+  outline: none;
+}
+.form-field textarea {
+  width: 40%;
+  margin-top: 0.75%;
+  margin-left: 5%;
+  font-size: 1.25rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: #ebebeb;
+  border: 1.5px solid #be2b28;
+}
+.form-field textarea:focus {
+  outline: none;
+}
+.form-field input[type=submit] {
+  width: 20%;
+  margin-left: 5%;
+  font-size: 2rem;
+  border: 3px solid #be2b28;
+  cursor: pointer;
+}
+.form-field input[type=submit]:hover {
+  border-color: #4e91ab;
+}
+.form-field input[type=submit]:active {
+  border-color: #0a171d;
+}
+
+.comments-area, .review-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.thank-you {
+  background-color: #4e91ab;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1.25rem;
+  color: #0a171d;
+}
+.thank-you p {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+/*# sourceMappingURL=contactUs.css.map */
