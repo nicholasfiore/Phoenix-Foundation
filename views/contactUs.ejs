@@ -37,18 +37,18 @@
                 <form id="contact-form" method="POST">
                     <!-- Name -->
                     <div class="form-field">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" required>
+                        <label for="commentName">Name</label>
+                        <input type="text" name="commentName" required>
                     </div>
                     <!-- Email -->
                     <div class="form-field">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" required>
+                        <label for="commentEmail">Email</label>
+                        <input type="email" name="commentEmail" required>
                     </div>
                     <!-- Country -->
                     <div class="form-field">
-                        <label for="country">Country</label>
-                        <select name="country" required>
+                        <label for="commentCountry">Country</label>
+                        <select name="commentCountry" required>
                             <!-- Make all the countries options for the selection -->
                             <% for (let i = 0; i < countries.length; i++) {%>
                                 <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
@@ -57,8 +57,8 @@
                     </div>
                     <!-- Comment box -->
                     <div class="comments-area form-field">
-                        <label for="comments">Comments</label>
-                        <textarea name="comments" rows="5" cols="20" required></textarea>
+                        <label for="commentText">Comments</label>
+                        <textarea name="commentText" rows="5" cols="20" required></textarea>
                     </div>
                     <!-- Submit -->
                     <div class="comments-area form-field">
@@ -79,18 +79,18 @@
                 <form id="review-form" method="POST" action="/api/reviews">
                     <!-- Name -->
                     <div class="form-field">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" required>
+                        <label for="reviewName">Name</label>
+                        <input type="text" name="reviewName" required>
                     </div>
                     <!-- Email -->
                     <div class="form-field">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" required>
+                        <label for="reviewEmail">Email</label>
+                        <input type="email" name="reviewEmail" required>
                     </div>
                     <!-- Country -->
                     <div class="form-field">
-                        <label for="country">Country</label>
-                        <select name="country" required>
+                        <label for="reviewCountry">Country</label>
+                        <select name="reviewCountry" required>
                             <!-- Make all the countries options for the selection -->
                             <% for (let i = 0; i < countries.length; i++) {%>
                                 <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
@@ -99,8 +99,8 @@
                     </div>
                     <!-- Review area -->
                     <div class="review-area form-field">
-                        <label for="review">Review</label>
-                        <textarea name="review" rows="5" cols="20" required></textarea>
+                        <label for="reviewText">Review</label>
+                        <textarea name="reviewText" rows="5" cols="20" required></textarea>
                     </div>
                     <!-- Submit -->
                     <div class="review-area form-field">

@@ -86,18 +86,18 @@ app.post('/contactUs', (req, res) => {
     // Get the list of comments submitted and add the submitted comment to the file
     const commentsList = JSON.parse(fs.readFileSync(path.join(dataPath, 'comments.json')).toString());
     const newComment = {
-        name: req.body.name,
-        email: req.body.email,
-        country: req.body.country,
-        comments: req.body.comments
+        name: req.body.commentName,
+        email: req.body.commentEmail,
+        country: req.body.commentCountry,
+        comments: req.body.commentText
     };
     commentsList.push(newComment);
 
     fs.writeFileSync(path.join(dataPath, 'comments.json'), JSON.stringify(commentsList));
 
     // Create the cookie data for the page
-    req.session.name = req.body.name;
-    req.session.email = req.body.email;
+    req.session.name = req.body.commentName;
+    req.session.email = req.body.commentEmail;
     req.session.form = 'comments';
 
     res.redirect('/contactUs');
@@ -132,17 +132,17 @@ app.post('/api/reviews', (req, res) => {
     const reviews = JSON.parse(fs.readFileSync(path.join(dataPath, 'reviews.json').toString()));
     const newReview = {
         id: reviews.length + 1,
-        name: req.body.name,
-        email: req.body.eamil,
-        country: req.body.country,
-        review: req.body.review
+        name: req.body.reviewName,
+        email: req.body.reviewEmail,
+        country: req.body.reviewCountry,
+        review: req.body.reviewText
     };
     reviews.push(newReview);
     fs.writeFileSync(path.join(dataPath, 'reviews.json'), JSON.stringify(reviews));
     
     // Create the session cookie data that will be displayed on the page
-    req.session.name = req.body.name;
-    req.session.email = req.body.email;
+    req.session.name = req.body.reviewName;
+    req.session.email = req.body.reviewEmail;
     req.session.form = 'review';
 
     res.redirect('/contactUs');
