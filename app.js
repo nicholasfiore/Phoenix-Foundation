@@ -25,7 +25,7 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
 // Landing page
@@ -85,19 +85,14 @@ app.get('/contactUs', (req, res) => {
 app.post('/contactUs', (req, res) => {
     // Get the list of comments submitted and add the submitted comment to the file
     const commentsList = JSON.parse(fs.readFileSync(path.join(dataPath, 'comments.json')).toString());
-    const newComment = {
-        name: req.body.commentName,
-        email: req.body.commentEmail,
-        country: req.body.commentCountry,
-        comments: req.body.commentText
-    };
+    const newComment = req.body.comment;
     commentsList.push(newComment);
 
     fs.writeFileSync(path.join(dataPath, 'comments.json'), JSON.stringify(commentsList));
 
     // Create the cookie data for the page
-    req.session.name = req.body.commentName;
-    req.session.email = req.body.commentEmail;
+    req.session.name = req.body.comment.name;
+    req.session.email = req.body.comment.email;
     req.session.form = 'comments';
 
     res.redirect('/contactUs');
@@ -130,19 +125,15 @@ app.get('/api/reviews/:reviewID', (req, res) => {
 app.post('/api/reviews', (req, res) => {
     // Get the reviews and add the submitted one to the file
     const reviews = JSON.parse(fs.readFileSync(path.join(dataPath, 'reviews.json').toString()));
-    const newReview = {
-        id: reviews.length + 1,
-        name: req.body.reviewName,
-        email: req.body.reviewEmail,
-        country: req.body.reviewCountry,
-        review: req.body.reviewText
-    };
+    
+    const newReview = req.body.review;
+    newReview.id = reviews.length + 1;
     reviews.push(newReview);
     fs.writeFileSync(path.join(dataPath, 'reviews.json'), JSON.stringify(reviews));
     
     // Create the session cookie data that will be displayed on the page
-    req.session.name = req.body.reviewName;
-    req.session.email = req.body.reviewEmail;
+    req.session.name = req.body.review.name;
+    req.session.email = req.body.review.email;
     req.session.form = 'review';
 
     res.redirect('/contactUs');

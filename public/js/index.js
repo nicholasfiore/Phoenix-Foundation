@@ -31,7 +31,7 @@ function getReview() {
         .then((data) => {
             newReview = data;
             numReviews = newReview.numReviews;
-            review.children[0].textContent = newReview.review;
+            review.children[0].textContent = newReview.reviewText;
             // Edit the HTML to show the new review
             review.children[1].innerHTML = `<i>&mdash; ${newReview.name}; ${newReview.country.replace(/\$/g, ' ')}</i>`;
         });

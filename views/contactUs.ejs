@@ -34,21 +34,21 @@
                         <p>Thank you <%= person.name %> for your feedback. We will send a response email to <%= person.email %> soon!</p>
                     </div>
                 <% } %>
-                <form id="contact-form" method="POST">
+                <form id="contact-form" method="POST" action='/contactUs'>
                     <!-- Name -->
                     <div class="form-field">
-                        <label for="commentName">Name</label>
-                        <input type="text" name="commentName" required>
+                        <label for="comment[name]">Name</label>
+                        <input type="text" name="comment[name]" required>
                     </div>
                     <!-- Email -->
                     <div class="form-field">
-                        <label for="commentEmail">Email</label>
-                        <input type="email" name="commentEmail" required>
+                        <label for="comment[email]">Email</label>
+                        <input type="email" name="comment[email]" required>
                     </div>
                     <!-- Country -->
                     <div class="form-field">
-                        <label for="commentCountry">Country</label>
-                        <select name="commentCountry" required>
+                        <label for="comment[country]">Country</label>
+                        <select name="comment[country]" required>
                             <!-- Make all the countries options for the selection -->
                             <% for (let i = 0; i < countries.length; i++) {%>
                                 <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
@@ -57,8 +57,8 @@
                     </div>
                     <!-- Comment box -->
                     <div class="comments-area form-field">
-                        <label for="commentText">Comments</label>
-                        <textarea name="commentText" rows="5" cols="20" required></textarea>
+                        <label for="comment[commentText]">Comments</label>
+                        <textarea name="comment[commentText]" rows="5" cols="20" required></textarea>
                     </div>
                     <!-- Submit -->
                     <div class="comments-area form-field">
@@ -79,18 +79,18 @@
                 <form id="review-form" method="POST" action="/api/reviews">
                     <!-- Name -->
                     <div class="form-field">
-                        <label for="reviewName">Name</label>
-                        <input type="text" name="reviewName" required>
+                        <label for="review[name]">Name</label>
+                        <input type="text" name="review[name]" required>
                     </div>
                     <!-- Email -->
                     <div class="form-field">
-                        <label for="reviewEmail">Email</label>
-                        <input type="email" name="reviewEmail" required>
+                        <label for="review[email]">Email</label>
+                        <input type="email" name="reivew[email]" required>
                     </div>
                     <!-- Country -->
                     <div class="form-field">
-                        <label for="reviewCountry">Country</label>
-                        <select name="reviewCountry" required>
+                        <label for="review[country]">Country</label>
+                        <select name="review[country]" required>
                             <!-- Make all the countries options for the selection -->
                             <% for (let i = 0; i < countries.length; i++) {%>
                                 <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
@@ -99,8 +99,8 @@
                     </div>
                     <!-- Review area -->
                     <div class="review-area form-field">
-                        <label for="reviewText">Review</label>
-                        <textarea name="reviewText" rows="5" cols="20" required></textarea>
+                        <label for="review[reviewText]">Review</label>
+                        <textarea name="review[reviewText]" rows="5" cols="20" required></textarea>
                     </div>
                     <!-- Submit -->
                     <div class="review-area form-field">
