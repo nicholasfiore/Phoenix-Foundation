@@ -6,6 +6,10 @@ const path = require('path');
 const fs = require('fs');
 const giveMeAJoke = require('give-me-a-joke');
 
+const db = require('./db');
+const Review = require('./models/reviewModel');
+const Project = require('./models/projectModel')
+
 const app = express();
 
 const PORT = 3000;
@@ -33,7 +37,7 @@ app.get('/', (req, res) => {
     giveMeAJoke.getRandomDadJoke((joke) => {
         currentJoke = joke;
     });
-    
+
     res.render('index', {joke: currentJoke});
 });
 
@@ -47,13 +51,14 @@ app.get('/whoWeAre', (req, res) => {
 });
 
 // What we do page
-app.get('/whatWeDo', (req, res) => {
+app.get('/whatWeDo', async (req, res) => {
     giveMeAJoke.getRandomDadJoke((joke) => {
         currentJoke = joke;
     });
 
     // Get the projects
-    const projects = JSON.parse(fs.readFileSync(path.join(dataPath, "projects.json")).toString());
+    const projects = await db.getProjects();
+
     res.render('whatWeDo', {projects: projects, joke: currentJoke});
 });
 
@@ -98,38 +103,30 @@ app.post('/contactUs', (req, res) => {
     res.redirect('/contactUs');
 });
 
+app.get('/api/reviews', async (req, res) => {
+    const reviews = await db.getReviews();
+    res.send(reviews);
+});
+
 // Gets a specific review from the data file
-app.get('/api/reviews/:reviewID', (req, res) => {
-    // Get all of the reviews
-    const reviews = JSON.parse(fs.readFileSync(path.join(dataPath, 'reviews.json')).toString());
+app.get('/api/reviews/:reviewID', async (req, res) => {
     
-    // Find the one requested by the client
-    const requestedReview = reviews.find((review) => {
-        return review.id === parseInt(req.params.reviewID);
-    });
-    
+    const requestedReview = await db.getReviews({_id: req.params.reviewID});
+        
     // Send the review information based on if the review exists or not
-    if (requestedReview !== undefined) {
-        requestedReview.numReviews = reviews.length;
-        res.send(requestedReview);
+    if (requestedReview.length == 1) {
+        res.send(requestedReview[0]);
     } else {
         res.send({
             id: -1, 
             error: "requested review not found", 
-            numReviews: reviews.length
         });
     }
 });
 
 // Creates a new review for the data file
 app.post('/api/reviews', (req, res) => {
-    // Get the reviews and add the submitted one to the file
-    const reviews = JSON.parse(fs.readFileSync(path.join(dataPath, 'reviews.json').toString()));
-    
-    const newReview = req.body.review;
-    newReview.id = reviews.length + 1;
-    reviews.push(newReview);
-    fs.writeFileSync(path.join(dataPath, 'reviews.json'), JSON.stringify(reviews));
+    Review.create(req.body.review);
     
     // Create the session cookie data that will be displayed on the page
     req.session.name = req.body.review.name;

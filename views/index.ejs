@@ -1,80 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('./partials/header') %>
+   
+<link rel="stylesheet" href="stylesheets/index.css">
+<title>Phoenix Foundation</title>
 
-    <!-- Link the CSS -->
-    <link rel="stylesheet" href="stylesheets/index.css">
+<%- include('./partials/navbar') %>
 
-    <title>Phoenix Foundation</title>
-</head>
-<body>
-    <!-- Nav bar contains links to all 4 pages in the website -->
-    <nav>
-        <div id="company-name">
-            <a href="/"><h1>Phoenix Foundation</h1></a>
+<!-- First think users see on the landing page -->
+<div id="landing-main-bg">
+    <div id="landing-main">
+        <h2>Revolutionizing how we<br>interact with each other.</h2>
+        <h2>&#9660;</h2>
+    </div>
+</div>
+
+<!-- A brief overview of the company and links to some of the other pages -->
+<div id="landing-second-bg">
+    <div id="landing-second">
+        <div id="landing-second-top">
+            <h3>We create applications that connect<br>people from all around the world.</h3>
+            <h4>Learn more about us with the links below:</h4>
         </div>
-        <div id="links">
-            <a href="/whoWeAre"><h2>Who We Are</h2></a>
-            <a href="/whatWeDo"><h2>What We Do</h2></a>
-            <a href="/contactUs"><h2>Contact Us</h2></a>
-        </div>
-    </nav>
-
-    <!-- First think users see on the landing page -->
-    <div id="landing-main-bg">
-        <div id="landing-main">
-            <h2>Revolutionizing how we<br>interact with each other.</h2>
-            <h2>&#9660;</h2>
+        <div id="landing-low-links">
+            <a href="/whoWeAre"><h4>Who We Are</h4></a>
+            <a href="/whatWeDo"><h4>What We Do</h4></a>
         </div>
     </div>
+</div>
 
-    <!-- A brief overview of the company and links to some of the other pages -->
-    <div id="landing-second-bg">
-        <div id="landing-second">
-            <div id="landing-second-top">
-                <h3>We create applications that connect<br>people from all around the world.</h3>
-                <h4>Learn more about us with the links below:</h4>
+<!-- Shows off some of the reviews that others have submitted -->
+<div id="landing-reviews-bg">
+    <div id="landing-reviews">
+        <h2>See what our users have to say:</h2>
+        <div id="review-area">
+            <!-- Arrow to toggle reviews -->
+            <div class="review-arrow">
+                <h3 id="left-arrow"><</h3>
             </div>
-            <div id="landing-low-links">
-                <a href="/whoWeAre"><h4>Who We Are</h4></a>
-                <a href="/whatWeDo"><h4>What We Do</h4></a>
+            <!-- Actual review content -->
+            <div id="review">
+                <h4></h4>
+                <p></p>
+            </div>
+            <!-- Arrow to toggle reviews -->
+            <div class="review-arrow">
+                <h3 id="right-arrow">></h3>
             </div>
         </div>
+        <!-- Link to contact page to get more feedback and reviews -->
+        <h3 id="ask-for-feedback">Want to give us feedback on our products? Contact us <a href="/contactUs">here</a>.</h3>
     </div>
+</div>
 
-    <!-- Shows off some of the reviews that others have submitted -->
-    <div id="landing-reviews-bg">
-        <div id="landing-reviews">
-            <h2>See what our users have to say:</h2>
-            <div id="review-area">
-                <!-- Arrow to toggle reviews -->
-                <div class="review-arrow">
-                    <h3 id="left-arrow"><</h3>
-                </div>
-                <!-- Actual review content -->
-                <div id="review">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h4>
-                    <p><i>&mdash; Josh; United States</i></p>
-                </div>
-                <!-- Arrow to toggle reviews -->
-                <div class="review-arrow">
-                    <h3 id="right-arrow">></h3>
-                </div>
-            </div>
-            <!-- Link to contact page to get more feedback and reviews -->
-            <h3 id="ask-for-feedback">Want to give us feedback on our products? Contact us <a href="/contactUs">here</a>.</h3>>
-        </div>
-    </div>
+<script src="/js/index.js"></script>
 
-    <!-- Footer shows a fun dad joke -->
-    <footer>
-        <h3><%= joke %></h3>
-    </footer>
-
-    <!-- Link the JS for the page -->
-    <script src="/js/index.js"></script>
-</body>
-</html>
+<%- include('./partials/footer') %>
