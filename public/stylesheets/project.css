@@ -1,0 +1,110 @@
+body {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+nav {
+  background-color: #be2b28;
+  color: #ebebeb;
+  height: 15%;
+  margin-top: 1%;
+  display: flex;
+  align-items: center;
+}
+nav a, nav a:visited {
+  color: #ebebeb;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #4e91ab;
+}
+
+#company-name {
+  width: 40%;
+}
+#company-name h1 {
+  text-align: left;
+  padding-left: 7.5%;
+  font-size: 2.5em;
+}
+
+#links {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: #be2b28;
+  height: 10%;
+  margin-top: 1.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+footer h3 {
+  font-size: 1.5rem;
+  color: #ebebeb;
+  text-align: center;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+#project-area {
+  background-color: rgba(10, 23, 29, 0.25);
+  color: #0a171d;
+}
+
+#project-name {
+  padding-top: 1%;
+  text-align: center;
+  font-size: 3rem;
+}
+
+#project-img {
+  width: 50%;
+  height: 25rem;
+  object-fit: cover;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.label {
+  font-size: 1.75rem;
+  padding-left: 1.5%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.content {
+  font-size: 1.25rem;
+  padding-left: 1.5%;
+}
+
+#feedback-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.feedback {
+  background-color: #ebebeb;
+  width: 40%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.feedback p {
+  padding-left: 2%;
+  font-size: 1.25rem;
+}
+.feedback h5 {
+  font-size: 1.15rem;
+  text-align: right;
+  padding-right: 2%;
+  line-height: 0.5rem;
+}
+
+/*# sourceMappingURL=project.css.map */

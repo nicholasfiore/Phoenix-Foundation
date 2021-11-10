@@ -63,7 +63,7 @@ app.get('/whatWeDo', async (req, res) => {
 });
 
 // Contact us page
-app.get('/contactUs', (req, res) => {
+app.get('/contactUs', async (req, res) => {
     giveMeAJoke.getRandomDadJoke((joke) => {
         currentJoke = joke;
     });
@@ -81,19 +81,24 @@ app.get('/contactUs', (req, res) => {
         req.session.destroy();
     }
 
+    const projectNames = await db.getProjects({}, {name: 1, _id: 0});
     // Get a list of countries for the form
     const countries = JSON.parse(fs.readFileSync(path.join(dataPath, 'countries.json')).toString());
-    res.render('contactUs', {person: person, countries: countries, joke: currentJoke});
+    res.render('contactUs', {person: person, countries: countries, projects: projectNames, joke: currentJoke});
 });
 
 // Contact us submission
-app.post('/contactUs', (req, res) => {
+app.post('/contactUs', async (req, res) => {
     // Get the list of comments submitted and add the submitted comment to the file
-    const commentsList = JSON.parse(fs.readFileSync(path.join(dataPath, 'comments.json')).toString());
     const newComment = req.body.comment;
-    commentsList.push(newComment);
+    newComment.country = newComment.country.replace(/\$/g, ' ');
+    newComment.project = newComment.project.replace(/\$/g, ' ');
 
-    fs.writeFileSync(path.join(dataPath, 'comments.json'), JSON.stringify(commentsList));
+    await db.addFeedbackToProject(newComment.project, {
+        name: newComment.name,
+        country: newComment.country,
+        feedbackText: newComment.commentText
+    });
 
     // Create the cookie data for the page
     req.session.name = req.body.comment.name;
@@ -135,6 +140,19 @@ app.post('/api/reviews', (req, res) => {
 
     res.redirect('/contactUs');
 });
+
+app.get('/project/:projectID', async (req, res) => {
+    giveMeAJoke.getRandomDadJoke((joke) => {
+        currentJoke = joke;
+    });
+
+    const project = await db.getProjects({_id: req.params.projectID});
+    if (project.length !== 1) {
+        res.redirect('/');
+    } else {
+        res.render('project', {project: project[0], joke: currentJoke});
+    }
+})
 
 // Set up the server
 app.listen(PORT, () => {

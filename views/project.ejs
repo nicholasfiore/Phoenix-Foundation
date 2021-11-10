@@ -1,0 +1,26 @@
+<%- include('./partials/header') %>
+
+<link rel="stylesheet" href="/stylesheets/project.css">
+<title>Digital Passport: Project</title>
+
+<%- include('./partials/navbar') %>
+
+<div id="project-area">
+    <h1 id="project-name"><%= project.name %></h1>
+    <img id="project-img" src=<%= `data:${project.img.contentType};base64,${project.img.imgData}` %> > 
+    <h3 class="label">Description</h3>
+    <p class="content"><%= project.description %></p>
+    <h3 class="label">Cost</h3>
+    <p class="content"><%= project.cost %></p>
+    <h3 class="label">Feedback</h3>
+    <div id="feedback-area">
+        <% for (let i = 0; i < project.feedback.length; i++) { %>
+            <div class="feedback">
+                <p><%= project.feedback[i].feedbackText %></p>
+                <h5>&mdash; <%= `${project.feedback[i].name}; ${project.feedback[i].country}` %></h5>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

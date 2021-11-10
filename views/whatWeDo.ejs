@@ -11,14 +11,16 @@
     <div id="projects">
         <!-- Show off each project in their own little box -->
         <% for (let i = 0; i < projects.length; i++) { %>
-            <div class="project">
-                <h2><%= projects[i].projectName %></h2>
-                <img src=<%= `data:${projects[i].img.contentType};base64,${projects[i].img.imgData}` %> > 
-                <h3>Description</h3>
-                <p><%= projects[i].description %></p>
-                <h3>Cost</h3>
-                <p><%= projects[i].cost %></p>
-            </div>
+            <a class="project" href=<%= `/project/${projects[i]._id}` %>>
+                <div>
+                    <h2><%= projects[i].projectName %></h2>
+                    <img src=<%= `data:${projects[i].img.contentType};base64,${projects[i].img.imgData}` %> >
+                    <h3>Description</h3>
+                    <p><%= projects[i].description %></p>
+                    <h3>Cost</h3>
+                    <p><%= projects[i].cost %></p>
+                </div>
+            </a>
         <% } %>
     </div>
 </div>

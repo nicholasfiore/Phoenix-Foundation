@@ -11,7 +11,6 @@ const projectSchema = mongoose.Schema({
     feedback: [{
         name: String,
         country: String,
-        stars: Number,
         feedbackText: String
     }]
 });
