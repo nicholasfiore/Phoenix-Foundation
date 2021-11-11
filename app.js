@@ -33,6 +33,10 @@ app.use('/reviews', reviewRoutes)
 const projectRoutes = require('./routes/projectRoutes');
 app.use('/projects', projectRoutes);
 
+app.use(function(req, res, next) {
+    res.status(404).render('error404');
+})
+
 // Set up the server
 app.listen(PORT, () => {
     console.log('Server listening on port ' + PORT);
