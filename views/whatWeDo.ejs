@@ -11,7 +11,7 @@
     <div id="projects">
         <!-- Show off each project in their own little box -->
         <% for (let i = 0; i < projects.length; i++) { %>
-            <a class="project" href=<%= `/project/${projects[i]._id}` %>>
+            <a class="project" href=<%= `/projects/${projects[i]._id}` %>>
                 <div>
                     <h2><%= projects[i].projectName %></h2>
                     <img src=<%= `data:${projects[i].img.contentType};base64,${projects[i].img.imgData}` %> >

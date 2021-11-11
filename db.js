@@ -19,5 +19,5 @@ db.once('open', () => {
 module.exports = {
     getReviews: async (options={}) => Review.find(options),
     getProjects: async (options={}, projection={}) => Project.find(options, projection),
-    addFeedbackToProject: async (projectName, feedback) => Project.updateOne({name: projectName}, {$addToSet: {feedback: feedback}})
+    addFeedbackToProject: async (projectName, feedbackObj) => Project.updateOne({name: projectName}, {$addToSet: {feedback: feedbackObj}})
 };

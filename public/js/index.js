@@ -4,12 +4,12 @@ const review = document.querySelector('#review');
 
 // Set up the variables and get the initial review
 let reviews;
-fetch('/api/reviews')
-.then(data => data.json())
-.then(content => {
-    reviews = content;
-    updateReview();
-});
+fetch('/reviews')
+    .then(data => data.json())
+    .then(content => {
+        reviews = content;
+        updateReview();
+    });
 let reviewIndex = 0;
 
 // Each arrow will have the same event listener when it is clicked
@@ -30,5 +30,5 @@ function updateReview() {
     // Get the new review to show
     review.children[0].textContent = reviews[reviewIndex].reviewText;
     // Edit the HTML to show the new review
-    review.children[1].innerHTML = `<i>&mdash; ${reviews[reviewIndex].name}; ${reviews[reviewIndex].country.replace(/\$/g, ' ')}</i>`;
+    review.children[1].innerHTML = `<i>&mdash; ${reviews[reviewIndex].name}; ${reviews[reviewIndex].country}</i>`;
 }
