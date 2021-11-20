@@ -8,8 +8,6 @@ const app = express();
 
 const PORT = 3000;
 
-let currentJoke = '';
-
 // Create the cookies for the session
 app.use(session({
     secret: 'secret',
@@ -33,7 +31,7 @@ app.use('/reviews', reviewRoutes)
 const projectRoutes = require('./routes/projectRoutes');
 app.use('/projects', projectRoutes);
 
-app.use(function(req, res, next) {
+app.use((req, res) => {
     res.status(404).render('error404');
 })
 

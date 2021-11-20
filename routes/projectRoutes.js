@@ -4,9 +4,10 @@ const router = express.Router();
 const db = require('../db');
 
 router.get('/:projectID', async (req, res) => {
-    const project = await db.getProjects({_id: req.params.projectID});
-    if (project.length !== 1) {
-        res.redirect('/');
+    const project = await db.getProjects({_id: req.params.projectID})
+        .catch((err) => {});
+    if (project === undefined || project.length !== 1) {
+        res.redirect('/404');
     } else {
         res.render('project', {project: project[0]});
     }
