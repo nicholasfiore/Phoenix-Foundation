@@ -16,7 +16,7 @@
     display: flex;
 }
 
-#contact-form-area, #review-form-area{
+#feedback-form-area, #review-form-area{
     width: 50%;
 }
 
@@ -29,7 +29,7 @@
     padding-bottom: 0.25rem;
 }
 
-#review-description {
+#feedback-description, #review-description {
     color: $white;
     margin-left: 5%;
     margin-top: 0;
@@ -37,7 +37,7 @@
     font-size: 1.25rem;
 }
 
-#contact-form, #review-form {
+#feedback-form, #review-form {
     display: flex;
     flex-direction: column;
 }
@@ -105,7 +105,7 @@
     }
 }
 
-.comments-area, .review-area {
+.feedback-area, .review-area {
     display: flex;
     flex-direction: column;
 }

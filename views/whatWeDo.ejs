@@ -1,49 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('./partials/header') %>
 
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="/stylesheets/whatWeDo.css">
+<link rel="stylesheet" href="/stylesheets/whatWeDo.css">
+<title>Phoenix Foundation - What We Do</title>
 
-    <title>Phoenix Foundation - What We Do</title>
-</head>
-<body>
-    <!-- Nav bar contains links to all 4 pages -->
-    <nav>
-        <div id="company-name">
-            <a href="/"><h1>Phoenix Foundation</h1></a>
-        </div>
-        <div id="links">
-            <a href="/whoWeAre"><h2>Who We Are</h2></a>
-            <a href="/whatWeDo"><h2>What We Do</h2></a>
-            <a href="/contactUs"><h2>Contact Us</h2></a>
-        </div>
-    </nav>
+<%- include('./partials/navbar') %>
 
-    <!-- Projects -->
-    <div id="projects-area">
-        <h2 id="page-title">Our Projects</h2>
-        <div id="projects">
-            <!-- Show off each project in their own little box -->
-            <% for (let i = 0; i < projects.length; i++) { %>
-                <div class="project">
+<!-- Projects -->
+<div id="projects-area">
+    <h2 id="page-title">Our Projects</h2>
+    <div id="projects">
+        <!-- Show off each project in their own little box -->
+        <% for (let i = 0; i < projects.length; i++) { %>
+            <a class="project" href=<%= `/projects/${projects[i]._id}` %>>
+                <div>
                     <h2><%= projects[i].projectName %></h2>
-                    <img src=<%= projects[i].imgPath %>>
+                    <img src=<%= `data:${projects[i].img.contentType};base64,${projects[i].img.imgData}` %> >
                     <h3>Description</h3>
-                    <p><%= projects[i].projectDescription %></p>
-                    <h3>Cost</h3>
-                    <p><%= projects[i].cost %></p>
+                    <p><%= projects[i].description %></p>
                 </div>
-            <% } %>
-        </div>
+            </a>
+        <% } %>
     </div>
+</div>
 
-    <!-- Footer contains a dad joke -->
-    <footer>
-        <h3><%= joke %></h3>
-    </footer>
-</body>
-</html>
+ <%- include('./partials/footer') %>

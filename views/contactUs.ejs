@@ -1,119 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('./partials/header') %>
 
-    <!-- Link the CSS -->
-    <link rel="stylesheet" href="/stylesheets/contactUs.css">
+<link rel="stylesheet" href="/stylesheets/contactUs.css">
+<title>Phoenix Foundation - Contact Us</title>
 
-    <title>Phoenix Foundation - Contact Us</title>
-</head>
-<body>
-    <!-- Nav bar contains links to all 4 pages -->
-    <nav>
-        <div id="company-name">
-            <a href="/"><h1>Phoenix Foundation</h1></a>
+<%- include("./partials/navbar") %>
+
+<div id="form-bg">
+    <div id="form-area">
+        <!-- Form area for general comments -->
+        <div id="feedback-form-area">
+            <h2 class="title-text">Provide Feedback</h2>
+            <p id="feedback-description">Have feedback about our products that you want to share with other customers? Feel free to place your feedback here.</p>
+            <!-- If the person just submitted the form, show the thank you note -->
+            <% if (person.name !== '' && person.form === 'feedback') { %>
+                <div class="thank-you">
+                    <p>Thank you <%= person.name %> for your feedback. We will send a response email to <%= person.email %> soon!</p>
+                </div>
+            <% } %>
+            <form id="feedback-form" method="POST" action='/projects/feedback'>
+                <!-- Name -->
+                <div class="form-field">
+                    <label for="feedback[name]">Name</label>
+                    <input type="text" name="feedback[name]" required>
+                </div>
+                <!-- Email -->
+                <div class="form-field">
+                    <label for="feedback[email]">Email</label>
+                    <input type="email" name="feedback[email]" required>
+                </div>
+                <!-- Country -->
+                <div class="form-field">
+                    <label for="feedback[country]">Country</label>
+                    <select name="feedback[country]" required>
+                        <!-- Make all the countries options for the selection -->
+                        <% for (let i = 0; i < countries.length; i++) {%>
+                            <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <!-- Project selectoin -->
+                <div class="form-field">
+                    <label for="feedback[project]">Project</label>
+                    <select name="feedback[project]" required>
+                        <!-- Make all the countries options for the selection -->
+                        <% for (let i = 0; i < projects.length; i++) {%>
+                            <option value=<%= projects[i].name.replace(/\s/g, '$') %>><%= projects[i].name %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <!-- Comment box -->
+                <div class="feedback-area form-field">
+                    <label for="feedback[feedbackText]">Feedback</label>
+                    <textarea name="feedback[feedbackText]" rows="5" cols="20" required></textarea>
+                </div>
+                <!-- Submit -->
+                <div class="feedback-area form-field">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
         </div>
-        <div id="links">
-            <a href="/whoWeAre"><h2>Who We Are</h2></a>
-            <a href="/whatWeDo"><h2>What We Do</h2></a>
-            <a href="/contactUs"><h2>Contact Us</h2></a>
-        </div>
-    </nav>
-
-    <div id="form-bg">
-        <div id="form-area">
-            <!-- Form area for general comments -->
-            <div id="contact-form-area">
-                <h2 class="title-text">Contact Us</h2>
-                <!-- If the person just submitted the form, show the thank you note -->
-                <% if (person.name !== '' && person.form === 'comments') { %>
-                    <div class="thank-you">
-                        <p>Thank you <%= person.name %> for your feedback. We will send a response email to <%= person.email %> soon!</p>
-                    </div>
-                <% } %>
-                <form id="contact-form" method="POST" action='/contactUs'>
-                    <!-- Name -->
-                    <div class="form-field">
-                        <label for="comment[name]">Name</label>
-                        <input type="text" name="comment[name]" required>
-                    </div>
-                    <!-- Email -->
-                    <div class="form-field">
-                        <label for="comment[email]">Email</label>
-                        <input type="email" name="comment[email]" required>
-                    </div>
-                    <!-- Country -->
-                    <div class="form-field">
-                        <label for="comment[country]">Country</label>
-                        <select name="comment[country]" required>
-                            <!-- Make all the countries options for the selection -->
-                            <% for (let i = 0; i < countries.length; i++) {%>
-                                <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <!-- Comment box -->
-                    <div class="comments-area form-field">
-                        <label for="comment[commentText]">Comments</label>
-                        <textarea name="comment[commentText]" rows="5" cols="20" required></textarea>
-                    </div>
-                    <!-- Submit -->
-                    <div class="comments-area form-field">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </div>
-            <!-- Form area for reviews -->
-            <div id="review-form-area">
-                <h2 class="title-text">Review Us</h2>
-                <p id="review-description">Do you love our products and want your voice to be heard? Submit a review and we may feature it on our website!</p>
-                <!-- If the user just submitted a review, show thank you note -->
-                <% if (person.name !== '' && person.form === 'review') { %>
-                    <div class="thank-you">
-                        <p>Thank you <%= person.name %> for the review!</p>
-                    </div>
-                <% } %>
-                <form id="review-form" method="POST" action="/api/reviews">
-                    <!-- Name -->
-                    <div class="form-field">
-                        <label for="review[name]">Name</label>
-                        <input type="text" name="review[name]" required>
-                    </div>
-                    <!-- Email -->
-                    <div class="form-field">
-                        <label for="review[email]">Email</label>
-                        <input type="email" name="reivew[email]" required>
-                    </div>
-                    <!-- Country -->
-                    <div class="form-field">
-                        <label for="review[country]">Country</label>
-                        <select name="review[country]" required>
-                            <!-- Make all the countries options for the selection -->
-                            <% for (let i = 0; i < countries.length; i++) {%>
-                                <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <!-- Review area -->
-                    <div class="review-area form-field">
-                        <label for="review[reviewText]">Review</label>
-                        <textarea name="review[reviewText]" rows="5" cols="20" required></textarea>
-                    </div>
-                    <!-- Submit -->
-                    <div class="review-area form-field">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </div>
+        <!-- Form area for reviews -->
+        <div id="review-form-area">
+            <h2 class="title-text">Review Us</h2>
+            <p id="review-description">Do you love our products and want your voice to be heard? Submit a review and we may feature it on our website!</p>
+            <!-- If the user just submitted a review, show thank you note -->
+            <% if (person.name !== '' && person.form === 'review') { %>
+                <div class="thank-you">
+                    <p>Thank you <%= person.name %> for the review!</p>
+                </div>
+            <% } %>
+            <form id="review-form" method="POST" action="/reviews/add">
+                <!-- Name -->
+                <div class="form-field">
+                    <label for="review[name]">Name</label>
+                    <input type="text" name="review[name]" required>
+                </div>
+                <!-- Email -->
+                <div class="form-field">
+                    <label for="review[email]">Email</label>
+                    <input type="email" name="reivew[email]" required>
+                </div>
+                <!-- Country -->
+                <div class="form-field">
+                    <label for="review[country]">Country</label>
+                    <select name="review[country]" required>
+                        <!-- Make all the countries options for the selection -->
+                        <% for (let i = 0; i < countries.length; i++) {%>
+                            <option value=<%= countries[i].replace(/\s/g, '$') %>><%= countries[i] %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <!-- Review area -->
+                <div class="review-area form-field">
+                    <label for="review[reviewText]">Review</label>
+                    <textarea name="review[reviewText]" rows="5" cols="20" required></textarea>
+                </div>
+                <!-- Submit -->
+                <div class="review-area form-field">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- Footer contains a dad joke -->
-    <footer>
-        <h3><%= joke %></h3>
-    </footer>
-</body>
-</html>
+<%- include('./partials/footer') %>

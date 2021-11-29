@@ -1,0 +1,58 @@
+@import './global.scss';
+
+#project-area {
+    background-color: rgb($black, 0.25);
+    color: $black;
+}
+
+#project-name {
+    padding-top: 1%;
+    text-align: center;
+    font-size: 3.0rem;
+}
+
+#project-img {
+    width: 50%;
+    height: 25rem;
+    object-fit: cover;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.label {
+    font-size: 1.75rem;
+    padding-left: 1.5%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.content {
+    font-size: 1.25rem;
+    padding-left: 1.5%;
+}
+
+#feedback-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.feedback {
+    background-color: $white;
+    width: 40%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+    p {
+        padding-left: 2%;
+        font-size: 1.25rem;
+    }
+
+    h5 {
+        font-size: 1.15rem;
+        text-align: right;
+        padding-right: 2%;
+        line-height: 0.5rem;
+    }
+}

@@ -1,52 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('./partials/header') %>
 
-    <!-- Link the CSS -->
-    <link rel="stylesheet" href="/stylesheets/whoWeAre.css">
+<link rel="stylesheet" href="/stylesheets/whoWeAre.css">
+<title>Phoenix Foundation - Who We Are</title>
 
-    <title>Phoenix Foundation - Who We Are</title>
-</head>
-<body>
-    <!-- Nav bar contains links to all 4 pages -->
-    <nav>
-        <div id="company-name">
-            <a href="/"><h1>Phoenix Foundation</h1></a>
-        </div>
-        <div id="links">
-            <a href="/whoWeAre"><h2>Who We Are</h2></a>
-            <a href="/whatWeDo"><h2>What We Do</h2></a>
-            <a href="/contactUs"><h2>Contact Us</h2></a>
-        </div>
-    </nav>
+<%- include('./partials/navbar') %>
 
-    <!-- Area containing information about who we are -->
-    <div id="who-we-are-content">
-        <h1 id="page-title">Who We Are</h1>
-        <div id="content-area">
-            <div id="content-left">
-                <!-- Little blurb about ourselves -->
-                <p id="text">
-                    Phoenix Foundation consists of a group of student developers
-                    that think outside of the box to develop new solutions that
-                    impact its users. We want the world to be better connected by
-                    supporting inclusivity and diversity among our users. We believe
-                    these measures will inspire more people to share their interests
-                    with the world and connect with other users from different countries
-                    around the world.
-                </p>
-                <img src="/res/legos.jpg" class="who-we-are-img" id="img-left">
-            </div>
-            <img src="/res/plane.jpg" class="who-we-are-img" id="img-right">
+<!-- Area containing information about who we are -->
+<div id="who-we-are-content">
+    <h1 id="page-title">Who We Are</h1>
+    <div id="content-area">
+        <div id="content-left">
+            <!-- Little blurb about ourselves -->
+            <p id="text">
+                Phoenix Foundation consists of a group of student developers
+                that think outside of the box to develop new solutions that
+                impact its users. We want the world to be better connected by
+                supporting inclusivity and diversity among our users. We believe
+                these measures will inspire more people to share their interests
+                with the world and connect with other users from different countries
+                around the world.
+            </p>
+            <img src="/res/legos.jpg" class="who-we-are-img" id="img-left">
         </div>
+        <img src="/res/plane.jpg" class="who-we-are-img" id="img-right">
     </div>
+</div>
 
-    <!-- Footer contains a dad joke -->
-    <footer>
-        <h3><%= joke %></h3>
-    </footer>
-</body>
-</html>
+<%- include('./partials/footer') %>
