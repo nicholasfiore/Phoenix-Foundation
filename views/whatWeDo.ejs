@@ -13,7 +13,7 @@
         <% for (let i = 0; i < projects.length; i++) { %>
             <a class="project" href=<%= `/projects/${projects[i]._id}` %>>
                 <div>
-                    <h2><%= projects[i].projectName %></h2>
+                    <h2><%= projects[i].name %></h2>
                     <img src=<%= `data:${projects[i].img.contentType};base64,${projects[i].img.imgData}` %> >
                     <h3>Description</h3>
                     <p><%= projects[i].description %></p>
